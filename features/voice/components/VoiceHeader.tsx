@@ -23,11 +23,11 @@ export function VoiceHeader({ getStatusColor, getStatusText, variant = "sheet" }
   )
 
   if (variant === "embed") {
-    return <div className="p-4 border-b border-black/10 text-white flex-shrink-0" style={{ background: 'linear-gradient(to right, rgb(221, 163, 67), rgb(201, 143, 47))' }}>{baseContent}</div>
+    return <div className="p-4 border-b border-black/10 text-white flex-shrink-0" style={{ background: 'linear-gradient(to right, var(--unab-primary), var(--unab-primary-hover))' }}>{baseContent}</div>
   }
 
   return (
-    <SheetHeader className="p-4 border-b border-black/10 text-white flex-shrink-0" style={{ background: 'linear-gradient(to right, rgb(221, 163, 67), rgb(201, 143, 47))' }}>
+    <SheetHeader className="p-4 border-b border-black/10 text-white flex-shrink-0" style={{ background: 'linear-gradient(to right, var(--unab-primary), var(--unab-primary-hover))' }}>
       <div className="flex items-center justify-between">
         <div>
           <SheetTitle className="text-base md:text-lg text-white">Asistente UNAB</SheetTitle>
