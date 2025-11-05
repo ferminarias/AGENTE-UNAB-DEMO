@@ -18,13 +18,17 @@ export default function VoiceEmbedPage() {
         const allowedDomains = [
           'localhost',
           '127.0.0.1',
-          'v0-ulinea-website-build.vercel.app', // Tu propio dominio
+          'unab.dominiodepruebas.online',
+          'agente-unab-demo',
+          'vercel.app',
           'bot.dominiodepruebas.online',
           'bot.ddev.site',
           'wordpress.com',
           'wordpress.org',
-          'ulinea.edu.mx',
-          'www.ulinea.edu.mx'
+          'unab.edu.co',
+          'www.unab.edu.co',
+          'agente-unab-demo.vercel.app'
+
         ]
         
         const isAllowed = allowedDomains.some(domain => 
@@ -46,16 +50,16 @@ export default function VoiceEmbedPage() {
 
   if (!isAuthorized) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w-md text-center">
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-orange-100 p-4">
+        <div className="bg-white rounded-lg shadow-lg p-6 max-w-md text-center border-2 border-orange-200">
+          <h2 className="text-xl font-semibold text-orange-600 mb-2">
             Acceso No Autorizado
           </h2>
           <p className="text-gray-600 mb-4">
             Este widget solo puede usarse en sitios autorizados.
           </p>
           <p className="text-sm text-gray-500">
-            Contacta con ULINEA para obtener acceso.
+            Contacta con UNAB para obtener acceso.
           </p>
         </div>
       </div>
