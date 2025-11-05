@@ -37,10 +37,16 @@ export function VoiceMessages({ messages, isTyping }: { messages: VoiceMessageIt
               className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
             >
               <div
-                className={`max-w-[85%] p-2.5 md:p-3 rounded-lg text-sm md:text-base leading-snug break-words whitespace-pre-wrap ${message.type === "user" ? "bg-ulinea-blue text-white" : "bg-gray-100 text-gray-900"}`}
+                className={`max-w-[85%] p-2.5 md:p-3 rounded-lg text-sm md:text-base leading-snug break-words whitespace-pre-wrap ${
+                  message.type === "user" 
+                    ? "bg-[#E9A427] text-white shadow-md" 
+                    : "bg-gray-100 text-gray-900"
+                }`}
               >
-                <p>{message.text}</p>
-                <p className="text-[10px] md:text-xs opacity-70 mt-1">
+                <p className={message.type === "user" ? "font-medium" : ""}>{message.text}</p>
+                <p className={`text-[10px] md:text-xs mt-1 ${
+                  message.type === "user" ? "text-white/80" : "text-gray-500"
+                }`}>
                   {new Date(message.timestamp).toLocaleTimeString()}
                 </p>
               </div>
