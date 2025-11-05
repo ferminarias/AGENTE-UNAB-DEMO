@@ -7,7 +7,7 @@ Widget de asistente de voz inteligente para la Universidad Autónoma de Bucarama
 ### ✨ Funcionalidades Principales
 - **Widget de Voz Flotante**: Botón naranja flotante con asistente de voz IA
 - **Integración ElevenLabs**: Conversación por voz en tiempo real
-- **Chat de Texto**: Opción de chat por texto durante la conversación
+- **Chat de Texto**: Opción de chat por texto durante la conversaciónf
 - **Diseño Responsive**: Optimizado para todos los dispositivos
 - **Colores Personalizados**: Esquema de colores naranja (marca UNAB)
 - **Modo Embed**: Puede integrarse en iframes para WordPress u otros sitios
