@@ -1,6 +1,5 @@
-@import "@tailwind/base";
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 :root {
   --unab-primary: rgb(221, 163, 67);
@@ -13,7 +12,6 @@
 
 :root {
   /* ULINEA Brand Colors */
-{{ ... }}
   --ulinea-red: #b91c1c;
   --ulinea-red-light: #dc2626;
   --ulinea-red-dark: #991b1b;
