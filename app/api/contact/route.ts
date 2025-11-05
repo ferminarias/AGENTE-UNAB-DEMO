@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { contactFormSchema } from "@/lib/validators"
 import { headers } from "next/headers"
-import { createServerSupabaseClient } from "@/lib/supabase"
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,41 +18,43 @@ export async function POST(request: NextRequest) {
     const userAgent = headersList.get("user-agent") || ""
     const referer = headersList.get("referer") || ""
 
-    // Prefer server client with service role to avoid RLS edge-cases
-    const supabase = createServerSupabaseClient()
-
-    const { data, error } = await supabase
-      .from("leads")
-      .insert({
-        full_name: validatedData.fullName,
-        email: validatedData.email,
-        phone: validatedData.phone,
-        interest_program: validatedData.interestProgram,
-        message: validatedData.message,
-        utm_source: validatedData.utmSource,
-        utm_medium: validatedData.utmMedium,
-        utm_campaign: validatedData.utmCampaign,
-        utm_term: validatedData.utmTerm,
-        utm_content: validatedData.utmContent,
-        referrer: referer,
-        path: validatedData.path,
-        status: "new",
-        priority: "medium",
-      })
-      .select()
-
-    if (error) {
-      console.error("[contact] Supabase error:", error)
-      return NextResponse.json(
-        { error: "Error al enviar el mensaje. Intenta nuevamente.", detail: error.message },
-        { status: 500 },
-      )
+    // Crear objeto con los datos del lead
+    const leadData = {
+      id: crypto.randomUUID(),
+      full_name: validatedData.fullName,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      interest_program: validatedData.interestProgram,
+      message: validatedData.message,
+      utm_source: validatedData.utmSource,
+      utm_medium: validatedData.utmMedium,
+      utm_campaign: validatedData.utmCampaign,
+      utm_term: validatedData.utmTerm,
+      utm_content: validatedData.utmContent,
+      referrer: referer,
+      path: validatedData.path,
+      status: "new",
+      priority: "medium",
+      created_at: new Date().toISOString(),
+      client_ip: clientIp,
+      user_agent: userAgent,
     }
+
+    // Log los datos (en producción podrías enviarlos a un servicio externo)
+    console.log("[contact] Nuevo lead recibido:", leadData)
+
+    // Aquí puedes integrar con servicios como:
+    // - SendGrid/Mailgun para enviar emails
+    // - Google Sheets API
+    // - Airtable
+    // - Notion API
+    // - Webhook a Zapier/Make
+    // - etc.
 
     return NextResponse.json(
       {
         message: "Mensaje enviado correctamente. Te contactaremos pronto.",
-        id: data[0]?.id,
+        id: leadData.id,
       },
       { status: 200 },
     )

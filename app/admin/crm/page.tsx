@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
-import { createClient } from "@/lib/supabase/client"
+// Supabase removed - CRM functionality disabled
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -295,16 +295,14 @@ function CRMContent({ onLogout }: { onLogout: () => void }) {
   const [meetingDatetime, setMeetingDatetime] = React.useState("")
   const [meetingSource, setMeetingSource] = React.useState("")
 
-  const supabase = createClient()
-
+  // Supabase removed - using mock data
   const fetchLeads = async () => {
     setLoading(true)
     try {
-      const { data, error } = await supabase.from("leads").select("*").order("created_at", { ascending: false })
-
-      if (error) throw error
-      setLeads(data || [])
-      setFilteredLeads(data || [])
+      // Mock data - replace with your own data source
+      setLeads([])
+      setFilteredLeads([])
+      console.log("[CRM] Supabase removed - no leads to fetch")
     } catch (error) {
       console.error("Error fetching leads:", error)
     } finally {
@@ -338,16 +336,8 @@ function CRMContent({ onLogout }: { onLogout: () => void }) {
 
   const updateLeadStatus = async (leadId: string, status: Lead["status"]) => {
     try {
-      const { error } = await supabase
-        .from("leads")
-        .update({
-          status,
-          last_contact_date: new Date().toISOString(),
-        })
-        .eq("id", leadId)
-
-      if (error) throw error
-      fetchLeads()
+      console.log("[CRM] Supabase removed - cannot update lead status")
+      // Replace with your own data source
     } catch (error) {
       console.error("Error updating lead status:", error)
     }
@@ -357,20 +347,8 @@ function CRMContent({ onLogout }: { onLogout: () => void }) {
     if (!selectedLead) return
 
     try {
-      const { error } = await supabase
-        .from("leads")
-        .update({
-          notes,
-          next_follow_up: nextFollowUp || null,
-          meeting_link: meetingLink || null,
-          meeting_datetime: meetingDatetime ? new Date(meetingDatetime).toISOString() : null,
-          meeting_source: meetingSource || null,
-          last_contact_date: new Date().toISOString(),
-        })
-        .eq("id", selectedLead.id)
-
-      if (error) throw error
-      fetchLeads()
+      console.log("[CRM] Supabase removed - cannot update lead notes")
+      // Replace with your own data source
       setIsDetailOpen(false)
       setNotes("")
       setNextFollowUp("")

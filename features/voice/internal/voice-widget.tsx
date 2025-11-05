@@ -388,7 +388,7 @@ export const VoiceWidget = ({ className, variant = "default" }: VoiceWidgetProps
     setVoiceStatus("connected")
     setMessages([
       {
-        text: "¡Hola! Soy tu asistente de ULINEA. ¿En qué puedo ayudarte hoy?",
+        text: "¡Hola! Soy tu asistente de UNAB. ¿En qué puedo ayudarte hoy?",
         timestamp: Date.now(),
         type: "assistant",
       },
@@ -494,7 +494,7 @@ export const VoiceWidget = ({ className, variant = "default" }: VoiceWidgetProps
     setIsTextChatActive(true)
     setTextMessages([
       {
-        text: "¡Hola! Soy tu asistente de ULINEA. ¿En qué puedo ayudarte hoy?",
+        text: "¡Hola! Soy tu asistente de UNAB. ¿En qué puedo ayudarte hoy?",
         timestamp: Date.now(),
         type: "assistant",
       },
@@ -613,10 +613,10 @@ export const VoiceWidget = ({ className, variant = "default" }: VoiceWidgetProps
         <div className="border-t bg-white p-2.5 md:p-3 flex-shrink-0 sticky bottom-0 z-20">
           {SHOW_TRANSCRIPTION_BAR && currentTranscription && currentTranscription !== "Escribe tu mensaje aquí..." && (
             <div className="mb-2 md:mb-3 sticky top-0 z-10">
-              <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-md px-2 py-1.5 shadow-sm">
-                <span className="text-[11px] md:text-xs font-semibold text-blue-800 whitespace-nowrap">Transcripción en vivo:</span>
+              <div className="flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-md px-2 py-1.5 shadow-sm">
+                <span className="text-[11px] md:text-xs font-semibold text-orange-800 whitespace-nowrap">Transcripción en vivo:</span>
                 <div className="flex-1 min-h-[20px] max-h-[72px] md:max-h-[96px] overflow-y-auto pr-1">
-                  <p className="text-sm md:text-base text-blue-900 whitespace-pre-wrap break-words leading-snug">
+                  <p className="text-sm md:text-base text-orange-900 whitespace-pre-wrap break-words leading-snug">
                     {currentTranscription}
                   </p>
                 </div>
@@ -624,7 +624,7 @@ export const VoiceWidget = ({ className, variant = "default" }: VoiceWidgetProps
                   onClick={() => {
                     try { navigator.clipboard.writeText(currentTranscription) } catch {}
                   }}
-                  className="text-xs md:text-sm text-ulinea-blue font-medium px-1 hover:underline whitespace-nowrap"
+                  className="text-xs md:text-sm text-orange-600 font-medium px-1 hover:underline whitespace-nowrap"
                   aria-label="Copiar transcripción"
                 >
                   Copiar
@@ -649,13 +649,13 @@ export const VoiceWidget = ({ className, variant = "default" }: VoiceWidgetProps
                 }
               }}
               placeholder="Escribe tu mensaje..."
-              className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-ulinea-blue focus:ring-1 focus:ring-ulinea-blue text-gray-900 placeholder-gray-500 text-sm md:text-base"
+              className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 text-gray-900 placeholder-gray-500 text-sm md:text-base"
               style={{ fontSize: '16px' }}
             />
             <button
               onClick={handleTextInputSubmit}
               disabled={!textInput.trim()}
-              className="px-4 py-2 bg-ulinea-blue text-white rounded-md text-sm md:text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors whitespace-nowrap"
+              className="px-4 py-2 bg-orange-500 text-white rounded-md text-sm md:text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-orange-600 transition-colors whitespace-nowrap"
             >
               Enviar
             </button>
@@ -686,13 +686,13 @@ export const VoiceWidget = ({ className, variant = "default" }: VoiceWidgetProps
               }}
               onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => handleKeyPress(e)}
               placeholder="Escribe tu mensaje..."
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ulinea-blue"
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               disabled={isTyping}
             />
             <button
               onClick={() => { void sendTextMessage() }}
               disabled={!inputMessage.trim() || isTyping}
-              className="px-4 py-2 rounded-lg text-white bg-ulinea-blue hover:bg-ulinea-blue/90 disabled:opacity-50"
+              className="px-4 py-2 rounded-lg text-white bg-orange-500 hover:bg-orange-600 disabled:opacity-50"
             >
               Enviar
             </button>

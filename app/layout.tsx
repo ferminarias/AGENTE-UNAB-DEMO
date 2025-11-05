@@ -14,13 +14,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Universidad ULINEA - Formación flexible, práctica y global",
+  title: "Asistente Virtual UNAB - Universidad Autónoma de Bucaramanga",
   description:
-    "Descubre nuestras licenciaturas y maestrías en línea. Educación de calidad con enfoque práctico y global. ¡Inscríbete ahora!",
-  keywords: "universidad en línea, licenciaturas, maestrías, educación superior, ULINEA",
-  authors: [{ name: "Universidad ULINEA" }],
-  creator: "Universidad ULINEA",
-  publisher: "Universidad ULINEA",
+    "Asistente virtual inteligente de la Universidad UNAB. Conversa con nuestro asistente de voz para obtener información sobre programas académicos.",
+  keywords: "UNAB, Universidad Autónoma de Bucaramanga, asistente virtual, chatbot, educación superior",
+  authors: [{ name: "Universidad UNAB" }],
+  creator: "Universidad UNAB",
+  publisher: "Universidad UNAB",
   formatDetection: {
     email: false,
     address: false,
@@ -28,27 +28,27 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   openGraph: {
-    title: "Universidad ULINEA - Formación flexible, práctica y global",
+    title: "Asistente Virtual UNAB",
     description:
-      "Descubre nuestras licenciaturas y maestrías en línea. Educación de calidad con enfoque práctico y global.",
+      "Asistente virtual inteligente de la Universidad UNAB. Conversa con nuestro asistente de voz.",
     url: "/",
-    siteName: "Universidad ULINEA",
+    siteName: "Universidad UNAB",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Universidad ULINEA",
+        alt: "Universidad UNAB",
       },
     ],
-    locale: "es_AR",
+    locale: "es_CO",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Universidad ULINEA - Formación flexible, práctica y global",
+    title: "Asistente Virtual UNAB",
     description:
-      "Descubre nuestras licenciaturas y maestrías en línea. Educación de calidad con enfoque práctico y global.",
+      "Asistente virtual inteligente de la Universidad UNAB.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -71,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-AR" suppressHydrationWarning>
+    <html lang="es-CO" suppressHydrationWarning>
       <body className={`font-sans ${inter.variable} antialiased`}>
         <Suspense fallback={null}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

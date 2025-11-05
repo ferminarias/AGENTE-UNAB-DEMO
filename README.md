@@ -1,48 +1,32 @@
-# Universidad ULINEA - Landing Page
+# Asistente Virtual UNAB
 
-<!-- trigger vercel deploy: update -->
-Una landing page moderna y completamente funcional para la Universidad ULINEA, construida con Next.js 14, TypeScript y Tailwind CSS.
+Widget de asistente de voz inteligente para la Universidad Autónoma de Bucaramanga (UNAB), construido con Next.js 14, TypeScript y Tailwind CSS.
 
 ## 🚀 Características
 
 ### ✨ Funcionalidades Principales
-- **Diseño Responsive**: Optimizado para todos los dispositivos (móvil, tablet, desktop)
-- **Formulario de Contacto**: Integración completa con Supabase para almacenamiento de datos
-- **Asistente de Voz**: Widget flotante con integración a ElevenLabs para consultas por voz
-- **Animaciones Suaves**: Implementadas con Framer Motion para una experiencia fluida
-- **SEO Optimizado**: Meta tags, JSON-LD, sitemap y robots.txt incluidos
-- **Modo Oscuro**: Soporte completo para tema claro y oscuro
-- **Accesibilidad**: Cumple con estándares WCAG 2.1 AA
-
-### 🎨 Secciones Incluidas
-1. **Hero Section**: Presentación principal con CTAs
-2. **Programas**: Grid de programas académicos con detalles
-3. **Beneficios**: Características destacadas de la universidad
-4. **Testimonios**: Carrusel de testimonios de graduados
-5. **Proceso de Admisión**: Pasos del proceso de inscripción
-6. **FAQ**: Preguntas frecuentes con acordeón
-7. **Contacto**: Formulario completo con validación
-8. **Footer**: Enlaces útiles y información de contacto
+- **Widget de Voz Flotante**: Botón naranja flotante con asistente de voz IA
+- **Integración ElevenLabs**: Conversación por voz en tiempo real
+- **Chat de Texto**: Opción de chat por texto durante la conversación
+- **Diseño Responsive**: Optimizado para todos los dispositivos
+- **Colores Personalizados**: Esquema de colores naranja (marca UNAB)
+- **Modo Embed**: Puede integrarse en iframes para WordPress u otros sitios
 
 ### 🛠 Stack Tecnológico
 - **Framework**: Next.js 14 (App Router)
 - **Lenguaje**: TypeScript
 - **Estilos**: Tailwind CSS v4
 - **Componentes**: shadcn/ui
-- **Animaciones**: Framer Motion
-- **Formularios**: React Hook Form + Zod
-- **Base de Datos**: Supabase
-- **IA de Voz**: ElevenLabs
-- **SEO**: next-sitemap
+- **IA de Voz**: ElevenLabs Conversational AI
+- **WebRTC**: Para comunicación en tiempo real
 - **Analytics**: Vercel Analytics
 
 ## 🚀 Instalación y Configuración
 
 ### Prerrequisitos
 - Node.js 18+ 
-- npm o yarn
-- Cuenta de Supabase
-- Cuenta de ElevenLabs (opcional)
+- npm, yarn o pnpm
+- Cuenta de ElevenLabs con API Key (requerido para el asistente de voz)
 
 ### 1. Clonar el repositorio
 \`\`\`bash
@@ -65,12 +49,7 @@ Copia `.env.example` a `.env.local` y configura las variables:
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_SITE_NAME="Universidad ULINEA"
 
-# Supabase Configuration
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
-
-# ElevenLabs Configuration (opcional)
+# ElevenLabs Configuration (opcional - solo para asistente de voz)
 ELEVENLABS_API_KEY=your_elevenlabs_api_key
 ELEVENLABS_VOICE_ID=your_voice_id
 
@@ -80,14 +59,7 @@ RECAPTCHA_SITE_KEY=your_recaptcha_site_key
 RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
 \`\`\`
 
-### 4. Configurar Supabase
-Ejecuta el script SQL incluido en tu proyecto de Supabase:
-
-\`\`\`sql
--- Ver archivo supabase.sql para el schema completo
-\`\`\`
-
-### 5. Ejecutar en desarrollo
+### 4. Ejecutar en desarrollo
 \`\`\`bash
 npm run dev
 # o
@@ -144,8 +116,12 @@ Visita `http://localhost:3000` para ver la aplicación.
 ## 🚀 Despliegue
 
 ### Vercel (Recomendado)
-1. Conecta tu repositorio a Vercel
-2. Configura las variables de entorno
+
+**📖 [Ver Guía Completa de Despliegue en Vercel](./VERCEL-DEPLOYMENT.md)**
+
+Pasos rápidos:
+1. Conecta tu repositorio de GitHub a Vercel
+2. Configura las variables de entorno (ver `.env.example`)
 3. Despliega automáticamente
 
 ### Otros Proveedores
