@@ -25,7 +25,8 @@ export async function GET(request: NextRequest) {
       'wordpress.com',
       'wordpress.org',
         'unab.dominiodepruebas.online',
-        'agente-unab-demo-3h9y2vpud-ferminariasml-gmailcoms-projects.vercel.app'
+        'agente-unab-demo-3h9y2vpud-ferminariasml-gmailcoms-projects.vercel.app',
+        'https://agente-unab-demo-3h9y2vpud-ferminariasml-gmailcoms-projects.vercel.app/'
     ]
     
     // Validar si está siendo usado desde dominio no autorizado
