@@ -41,17 +41,17 @@ export function VoiceControls({
   return (
     <div className="border-t bg-gray-50 flex-shrink-0 max-h-[55vh] overflow-y-auto">
       <div className="p-3 md:p-4 space-y-3">
-        <Card className="border-orange-200 bg-orange-50">
+        <Card className="border-black/10" style={{ backgroundColor: 'rgba(221, 163, 67, 0.1)' }}>
           <CardContent className="p-4">
             {/* Layout responsivo: horizontal en desktop, columna en móvil */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
-              <div className="flex items-center space-x-2 text-orange-700">
+              <div className="flex items-center space-x-2" style={{ color: 'rgb(181, 123, 27)' }}>
                 {voiceStatus === "connected"
                   ? (isMuted ? <MicOff className="h-5 w-5" strokeWidth={2.5} /> : <Mic className="h-5 w-5" strokeWidth={2.5} />)
                   : <Volume2 className="h-5 w-5" strokeWidth={2.5} />}
                 <div className="min-w-0 flex-1">
                   <p className="font-medium text-sm sm:text-base">Conversación por voz</p>
-                  <p className="text-xs sm:text-sm text-orange-600">Habla directamente con el asistente IA</p>
+                  <p className="text-xs sm:text-sm" style={{ color: 'rgb(201, 143, 47)' }}>Habla directamente con el asistente IA</p>
                 </div>
               </div>
               <div className="flex space-x-2 flex-shrink-0 self-center sm:self-auto">
@@ -60,7 +60,8 @@ export function VoiceControls({
                     onClick={toggleMute}
                     aria-pressed={isMuted}
                     aria-label={isMuted ? "Activar micrófono" : "Silenciar micrófono"}
-                    className="h-9 px-3 rounded-md border border-orange-300 bg-white/60 text-orange-700 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 whitespace-nowrap text-xs sm:text-sm"
+                    className="h-9 px-3 rounded-md border border-black/10 bg-white/60 hover:bg-white focus:outline-none focus-visible:ring-2 whitespace-nowrap text-xs sm:text-sm"
+                    style={{ color: 'rgb(181, 123, 27)', borderColor: 'rgba(221, 163, 67, 0.3)' }}
                   >
                     {isMuted ? <MicOff className="h-4 w-4" strokeWidth={2.5} /> : <Mic className="h-4 w-4" strokeWidth={2.5} />}
                   </button>
@@ -70,7 +71,10 @@ export function VoiceControls({
                   disabled={callDisabled}
                   aria-label={voiceStatus === "connected" ? "Terminar llamada" : "Iniciar llamada"}
                   title={callTitle}
-                  className={`h-9 px-3 sm:px-4 rounded-md text-white font-semibold shadow-sm whitespace-nowrap text-xs sm:text-sm ${voiceStatus === "connected" ? "bg-red-600 hover:bg-red-700" : "bg-orange-500 hover:bg-orange-600"} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-400 disabled:opacity-60 disabled:cursor-not-allowed`}
+                  className={`h-9 px-3 sm:px-4 rounded-md text-white font-semibold shadow-sm whitespace-nowrap text-xs sm:text-sm ${voiceStatus === "connected" ? "bg-red-600 hover:bg-red-700" : ""} focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed border border-black/10`}
+                  style={voiceStatus !== "connected" ? { backgroundColor: 'rgb(221, 163, 67)' } : undefined}
+                  onMouseEnter={(e) => { if (voiceStatus !== "connected") e.currentTarget.style.backgroundColor = 'rgb(201, 143, 47)' }}
+                  onMouseLeave={(e) => { if (voiceStatus !== "connected") e.currentTarget.style.backgroundColor = 'rgb(221, 163, 67)' }}
                 >
                   <span className="inline-flex items-center">
                     <Phone className="h-3 w-3 sm:h-4 sm:w-4 mr-1" strokeWidth={2.5} />
@@ -81,7 +85,7 @@ export function VoiceControls({
               </div>
             </div>
             {!hasElevenLabsConfig && !isCallInProgress && (
-              <p className="mt-3 text-xs text-orange-700 bg-white/70 border border-orange-200 rounded-md px-3 py-2">
+              <p className="mt-3 text-xs bg-white/70 border border-black/10 rounded-md px-3 py-2" style={{ color: 'rgb(181, 123, 27)' }}>
                 El asistente de voz estará disponible en breve. Mientras tanto puedes usar el chat de texto, WhatsApp o el formulario de contacto.
               </p>
             )}

@@ -1,6 +1,6 @@
 export default function HomePage() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-orange-50 to-orange-100">
+    <div className="min-h-screen w-full" style={{ background: 'linear-gradient(to bottom right, rgba(221, 163, 67, 0.1), rgba(221, 163, 67, 0.2))' }}>
       <div className="w-full h-screen">
         <iframe 
           src="/voice/embed" 

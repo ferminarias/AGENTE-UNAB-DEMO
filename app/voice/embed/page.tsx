@@ -50,9 +50,9 @@ export default function VoiceEmbedPage() {
 
   if (!isAuthorized) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-orange-100 p-4">
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w-md text-center border-2 border-orange-200">
-          <h2 className="text-xl font-semibold text-orange-600 mb-2">
+      <div className="min-h-screen flex items-center justify-center p-4" style={{ background: 'linear-gradient(to bottom right, rgba(221, 163, 67, 0.1), rgba(221, 163, 67, 0.2))' }}>
+        <div className="bg-white rounded-lg shadow-lg p-6 max-w-md text-center border-2 border-black/10">
+          <h2 className="text-xl font-semibold mb-2" style={{ color: 'rgb(221, 163, 67)' }}>
             Acceso No Autorizado
           </h2>
           <p className="text-gray-600 mb-4">

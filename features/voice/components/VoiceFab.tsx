@@ -20,7 +20,10 @@ export function VoiceFab({ isOpen, setIsOpen, className, children, onClose }: { 
         <SheetTrigger asChild>
           <button
             aria-label="Abrir asistente de voz"
-            className="h-14 w-14 md:h-16 md:w-16 rounded-full bg-orange-500 hover:bg-orange-600 text-white shadow-2xl hover:shadow-3xl transition-all duration-300 group border-2 border-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 flex items-center justify-center"
+            className="h-14 w-14 md:h-16 md:w-16 rounded-full text-white shadow-2xl hover:shadow-3xl transition-all duration-300 group border-2 border-black/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 flex items-center justify-center"
+            style={{ backgroundColor: 'rgb(221, 163, 67)' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgb(201, 143, 47)'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgb(221, 163, 67)'}
           >
             <Headphones className="h-7 w-7 md:h-8 md:w-8 group-hover:scale-110 transition-transform drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" strokeWidth={2.25} />
           </button>
